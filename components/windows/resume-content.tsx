@@ -6,37 +6,48 @@ import { Download, FileText, GraduationCap, Briefcase, Award, Code, Users } from
 
 export function ResumeContent() {
   const handleDownload = () => {
-    // Generate PDF as base64 using a simple PDF structure
-    const cvContent = `
-MARIE ESTHER ATIENO NYAWAGA
+    const cvText = `MARIE ESTHER ATIENO NYAWAGA
 Data Analyst | BSc Data Science & Analytics
 Nairobi, Kenya | +254 797 291 632 | nyawagamarieesther@gmail.com
 
+================================================================================
 PROFESSIONAL SUMMARY
-Data Analyst with hands-on experience transforming raw datasets into actionable insights using Python, SQL, Excel, and Power BI. Proven ability to uncover trends, detect anomalies, and support business decision-making through data storytelling and visualization.
+================================================================================
+Data Analyst with hands-on experience transforming raw datasets into actionable 
+insights using Python, SQL, Excel, and Power BI. Proven ability to uncover trends, 
+detect anomalies, and support business decision-making through data storytelling 
+and visualization.
 
-EDUCATION
+================================================================================
+EDUCATION & CERTIFICATIONS
+================================================================================
 BSc Data Science and Analytics - USIU-Africa (Sep 2022 – Apr 2026)
 Cum Laude Candidate | GPA: 3.6+
-Core Modules: Statistical Computing, Probability & Statistics, Machine Learning, Big Data Analytics, Data Visualization
 
-PROFESSIONAL CERTIFICATIONS
+Core Modules: Statistical Computing, Probability & Statistics, Machine Learning, 
+Big Data Analytics, Data Visualization
+
+Professional Certifications:
 • Data Analytics Skill Cohort – CC Academy (Certificate ID: CC-DA-0326-001) - March 2026
 • Introduction to Python – DataCamp - June 2024
-• Exploratory Data Analysis in Python – DataCamp - June 2024  
+• Exploratory Data Analysis in Python – DataCamp - June 2024
 • Understanding Data Science – DataCamp - July 2024
 • Preparing Data for Analysis with Microsoft Excel – Coursera
 • Foundations: Data, Data, Everywhere – Coursera
 • Professional Certification in M&E – The Kenya Institute of Management (In Progress)
 
+================================================================================
 TECHNICAL SKILLS
+================================================================================
 Programming: Python, R, SQL, VBA
 Data Visualization: Power BI, Tableau, Google Data Studio
 Data Processing: Pandas, NumPy, Excel
 Machine Learning: Scikit-learn, TensorFlow/Keras
 Statistical Analysis, EDA, Feature Engineering, ETL Pipeline Design, Git
 
+================================================================================
 WORK EXPERIENCE
+================================================================================
 Data Analytics Intern – KKCO East Africa LLP (Jan 2026 – Present)
 • Analysed financial datasets to surface trends and anomalies for audit planning
 • Built data cleaning and validation processes for multi-source financial files
@@ -48,7 +59,9 @@ Mathematics Tutor – Freelance (Dec 2024 – Aug 2025)
 • Designed structured learning plans improving pass rates
 • Developed ability to communicate complex statistical concepts
 
+================================================================================
 KEY COMPETENCIES
+================================================================================
 • Financial data analysis and anomaly detection
 • ETL pipeline design and data quality validation
 • Interactive Power BI/Tableau dashboards for stakeholder reporting
@@ -56,7 +69,9 @@ KEY COMPETENCIES
 • NLP text preprocessing and analysis
 • Communicating complex findings to non-technical audiences
 
+================================================================================
 ACHIEVEMENTS
+================================================================================
 • Cum Laude Candidate (USIU-Africa)
 • CC Academy Data Analytics Certified
 • Financial Audit Analytics Expertise
@@ -64,72 +79,26 @@ ACHIEVEMENTS
 • Active GitHub Contributor
 • Community Service Volunteer
 
+================================================================================
 CAREER OBJECTIVE
-To leverage data analytics expertise to uncover actionable business insights and drive organizational impact. Seeking opportunities to work on complex financial and operational data challenges, build machine learning models, and create compelling data visualizations.
-    `
+================================================================================
+To leverage data analytics expertise to uncover actionable business insights and 
+drive organizational impact. Seeking opportunities to work on complex financial 
+and operational data challenges, build machine learning models, and create 
+compelling data visualizations.
+`
 
-    // Create a PDF-like document using html5 canvas approach
-    // For now, we'll convert to PDF format by creating a proper blob
-    const element = document.createElement("div")
-    element.innerHTML = `
-      <h1>MARIE ESTHER ATIENO NYAWAGA</h1>
-      <p>Data Analyst | BSc Data Science & Analytics</p>
-      <p>Nairobi, Kenya | +254 797 291 632 | nyawagamarieesther@gmail.com</p>
-      <pre>${cvContent}</pre>
-    `
-
-    // Generate PDF using html2pdf if available, otherwise use a client library
-    try {
-      const script = document.createElement("script")
-      script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
-      document.head.appendChild(script)
-      
-      script.onload = () => {
-        const opt = {
-          margin: 10,
-          filename: "Marie-Nyawaga-CV.pdf",
-          image: { type: "jpeg", quality: 0.98 },
-          html2canvas: { scale: 2 },
-          jsPDF: { orientation: "portrait", unit: "mm", format: "a4" }
-        }
-        window.html2pdf().set(opt).from(element).save()
-      }
-    } catch (error) {
-      console.error("PDF generation error:", error)
-      // Fallback: Create a simple PDF structure
-      const pdfContent = createSimplePDF(cvContent)
-      const link = document.createElement("a")
-      link.href = pdfContent
-      link.download = "Marie-Nyawaga-CV.pdf"
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    }
-  }
-
-  // Helper function to create a basic PDF structure
-  const createSimplePDF = (content: string): string => {
-    const pdf = `%PDF-1.4
-1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj
-2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj
-3 0 obj<</Type/Page/Parent 2 0 R/Resources<</Font<</F1 4 0 R>>>>/MediaBox[0 0 612 792]/Contents 5 0 R>>endobj
-4 0 obj<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>endobj
-5 0 obj<</Length ${content.length}>>stream
-BT /F1 12 Tf 50 750 Td (${content.replace(/\(/g, "\\(").replace(/\)/g, "\\)")}) Tj ET
-endstream endobj
-xref
-0 6
-0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000214 00000 n 
-0000000301 00000 n 
-trailer<</Size 6/Root 1 0 R>>
-startxref
-${content.length + 400}
-%%EOF`
-    return "data:application/pdf;base64," + btoa(pdf)
+    // Create a Blob and trigger download
+    const blob = new Blob([cvText], { type: "text/plain;charset=utf-8" })
+    const link = document.createElement("a")
+    link.href = URL.createObjectURL(blob)
+    link.download = "Marie-Nyawaga-CV.txt"
+    link.style.display = "none"
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+    URL.revokeObjectURL(link.href)
+    console.log("[v0] CV downloaded successfully")
   }
 
   return (
