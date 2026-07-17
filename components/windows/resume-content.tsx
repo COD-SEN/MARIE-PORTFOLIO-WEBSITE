@@ -5,25 +5,77 @@ import { Button } from "@/components/ui/button"
 import { Download, FileText, GraduationCap, Briefcase, Award, Code, Users } from "lucide-react"
 
 export function ResumeContent() {
-  const resumeUrl = "/Marie-Nyawaga-CV.pdf"
-  const resumeName = "Marie-Nyawaga-CV.pdf"
+  const handleDownload = () => {
+    // Create a link element and trigger download
+    const link = document.createElement("a")
+    link.href = "data:text/plain;charset=utf-8,"
+    link.download = "Marie-Nyawaga-CV.txt"
+    
+    const cvContent = `
+MARIE ESTHER ATIENO NYAWAGA
+Data Analyst | BSc Data Science & Analytics
+Nairobi, Kenya | +254 797 291 632 | nyawagamarieesther@gmail.com
 
-  const handleDownload = async () => {
-    try {
-      console.log("[v0] Starting CV download for:", resumeName)
-      const response = await fetch(resumeUrl)
-      const blob = await response.blob()
-      const url = window.URL.createObjectURL(blob)
-      const link = document.createElement("a")
-      link.href = url
-      link.download = resumeName
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-      window.URL.revokeObjectURL(url)
-    } catch (error) {
-      console.error("Download failed:", error)
-    }
+PROFESSIONAL SUMMARY
+Data Analyst with hands-on experience transforming raw datasets into actionable insights using Python, SQL, Excel, and Power BI. Proven ability to uncover trends, detect anomalies, and support business decision-making through data storytelling and visualization.
+
+EDUCATION
+BSc Data Science and Analytics - USIU-Africa (Sep 2022 – Apr 2026)
+Cum Laude Candidate | GPA: 3.6+
+Core Modules: Statistical Computing, Probability & Statistics, Machine Learning, Big Data Analytics, Data Visualization
+
+PROFESSIONAL CERTIFICATIONS
+• Data Analytics Skill Cohort – CC Academy (Certificate ID: CC-DA-0326-001) - March 2026
+• Introduction to Python – DataCamp - June 2024
+• Exploratory Data Analysis in Python – DataCamp - June 2024  
+• Understanding Data Science – DataCamp - July 2024
+• Preparing Data for Analysis with Microsoft Excel – Coursera
+• Foundations: Data, Data, Everywhere – Coursera
+• Professional Certification in M&E – The Kenya Institute of Management (In Progress)
+
+TECHNICAL SKILLS
+Programming: Python, R, SQL, VBA
+Data Visualization: Power BI, Tableau, Google Data Studio
+Data Processing: Pandas, NumPy, Excel
+Machine Learning: Scikit-learn, TensorFlow/Keras
+Statistical Analysis, EDA, Feature Engineering, ETL Pipeline Design, Git
+
+WORK EXPERIENCE
+Data Analytics Intern – KKCO East Africa LLP (Jan 2026 – Present)
+• Analysed financial datasets to surface trends and anomalies for audit planning
+• Built data cleaning and validation processes for multi-source financial files
+• Developed Power BI dashboards for audit managers providing key financial metrics
+• Supported IT audit cycles by reviewing data system outputs
+
+Mathematics Tutor – Freelance (Dec 2024 – Aug 2025)
+• Provided remote mathematics tutoring for university students
+• Designed structured learning plans improving pass rates
+• Developed ability to communicate complex statistical concepts
+
+KEY COMPETENCIES
+• Financial data analysis and anomaly detection
+• ETL pipeline design and data quality validation
+• Interactive Power BI/Tableau dashboards for stakeholder reporting
+• Machine learning model development and cross-validation
+• NLP text preprocessing and analysis
+• Communicating complex findings to non-technical audiences
+
+ACHIEVEMENTS
+• Cum Laude Candidate (USIU-Africa)
+• CC Academy Data Analytics Certified
+• Financial Audit Analytics Expertise
+• Machine Learning & NLP Projects
+• Active GitHub Contributor
+• Community Service Volunteer
+
+CAREER OBJECTIVE
+To leverage data analytics expertise to uncover actionable business insights and drive organizational impact. Seeking opportunities to work on complex financial and operational data challenges, build machine learning models, and create compelling data visualizations.
+    `
+    
+    link.href = "data:text/plain;charset=utf-8," + encodeURIComponent(cvContent)
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (

@@ -3,6 +3,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 :root {
   /* Modern Windows 11 color scheme with vibrant gradients */
   --win11-primary: #0067c0;
