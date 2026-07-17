@@ -5,100 +5,137 @@ import { Button } from "@/components/ui/button"
 import { Download, FileText, GraduationCap, Briefcase, Award, Code, Users } from "lucide-react"
 
 export function ResumeContent() {
-  const handleDownload = () => {
-    const cvText = `MARIE ESTHER ATIENO NYAWAGA
-Data Analyst | BSc Data Science & Analytics
-Nairobi, Kenya | +254 797 291 632 | nyawagamarieesther@gmail.com
+  const handleDownload = async () => {
+    try {
+      const { jsPDF } = await import("jspdf")
+      const doc = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      })
 
-================================================================================
-PROFESSIONAL SUMMARY
-================================================================================
-Data Analyst with hands-on experience transforming raw datasets into actionable 
-insights using Python, SQL, Excel, and Power BI. Proven ability to uncover trends, 
-detect anomalies, and support business decision-making through data storytelling 
-and visualization.
+      const pageWidth = doc.internal.pageSize.getWidth()
+      const pageHeight = doc.internal.pageSize.getHeight()
+      const margin = 12
+      let yPosition = margin
 
-================================================================================
-EDUCATION & CERTIFICATIONS
-================================================================================
-BSc Data Science and Analytics - USIU-Africa (Sep 2022 – Apr 2026)
-Cum Laude Candidate | GPA: 3.6+
+      const setSection = (title: string) => {
+        if (yPosition > pageHeight - 20) {
+          doc.addPage()
+          yPosition = margin
+        }
+        doc.setFontSize(12)
+        doc.setFont(undefined, "bold")
+        doc.setTextColor(0, 0, 0)
+        doc.text(title, margin, yPosition)
+        yPosition += 6
+      }
 
-Core Modules: Statistical Computing, Probability & Statistics, Machine Learning, 
-Big Data Analytics, Data Visualization
+      const addText = (text: string | string[], fontSize = 10, isBold = false) => {
+        if (yPosition > pageHeight - 15) {
+          doc.addPage()
+          yPosition = margin
+        }
+        doc.setFontSize(fontSize)
+        doc.setFont(undefined, isBold ? "bold" : "normal")
+        doc.setTextColor(30, 30, 30)
+        
+        const lines = Array.isArray(text) ? text : doc.splitTextToSize(text, pageWidth - 2 * margin)
+        doc.text(lines, margin, yPosition)
+        yPosition += (lines.length * (fontSize / 2.5)) + 2
+      }
 
-Professional Certifications:
-• Data Analytics Skill Cohort – CC Academy (Certificate ID: CC-DA-0326-001) - March 2026
-• Introduction to Python – DataCamp - June 2024
-• Exploratory Data Analysis in Python – DataCamp - June 2024
-• Understanding Data Science – DataCamp - July 2024
-• Preparing Data for Analysis with Microsoft Excel – Coursera
-• Foundations: Data, Data, Everywhere – Coursera
-• Professional Certification in M&E – The Kenya Institute of Management (In Progress)
+      // Header
+      doc.setFontSize(16)
+      doc.setFont(undefined, "bold")
+      doc.setTextColor(0, 0, 0)
+      doc.text("MARIE ESTHER ATIENO NYAWAGA", pageWidth / 2, yPosition, { align: "center" })
+      yPosition += 7
 
-================================================================================
-TECHNICAL SKILLS
-================================================================================
-Programming: Python, R, SQL, VBA
-Data Visualization: Power BI, Tableau, Google Data Studio
-Data Processing: Pandas, NumPy, Excel
-Machine Learning: Scikit-learn, TensorFlow/Keras
-Statistical Analysis, EDA, Feature Engineering, ETL Pipeline Design, Git
+      doc.setFontSize(10)
+      doc.setFont(undefined, "normal")
+      doc.setTextColor(60, 60, 60)
+      doc.text("Data Analyst | BSc Data Science & Analytics", pageWidth / 2, yPosition, { align: "center" })
+      yPosition += 5
+      doc.text("Nairobi, Kenya | +254 797 291 632 | nyawagamarieesther@gmail.com", pageWidth / 2, yPosition, { align: "center" })
+      yPosition += 10
 
-================================================================================
-WORK EXPERIENCE
-================================================================================
-Data Analytics Intern – KKCO East Africa LLP (Jan 2026 – Present)
-• Analysed financial datasets to surface trends and anomalies for audit planning
-• Built data cleaning and validation processes for multi-source financial files
-• Developed Power BI dashboards for audit managers providing key financial metrics
-• Supported IT audit cycles by reviewing data system outputs
+      // Professional Summary
+      setSection("PROFESSIONAL SUMMARY")
+      addText("Data Analyst with hands-on experience transforming raw datasets into actionable insights using Python, SQL, Excel, and Power BI. Proven ability to uncover trends, detect anomalies, and support business decision-making through data storytelling and visualization.")
 
-Mathematics Tutor – Freelance (Dec 2024 – Aug 2025)
-• Provided remote mathematics tutoring for university students
-• Designed structured learning plans improving pass rates
-• Developed ability to communicate complex statistical concepts
+      // Education & Certifications
+      setSection("EDUCATION & CERTIFICATIONS")
+      addText("BSc Data Science and Analytics - USIU-Africa (Sep 2022 – Apr 2026)", 10, true)
+      addText("Cum Laude Candidate | GPA: 3.6+")
+      addText("Core Modules: Statistical Computing, Probability & Statistics, Machine Learning, Big Data Analytics, Data Visualization")
+      addText("")
+      addText("Professional Certifications:")
+      addText([
+        "• Data Analytics Skill Cohort – CC Academy (March 2026)",
+        "• Introduction to Python – DataCamp (June 2024)",
+        "• Exploratory Data Analysis in Python – DataCamp (June 2024)",
+        "• Understanding Data Science – DataCamp (July 2024)",
+        "• Preparing Data for Analysis with Microsoft Excel – Coursera",
+      ])
 
-================================================================================
-KEY COMPETENCIES
-================================================================================
-• Financial data analysis and anomaly detection
-• ETL pipeline design and data quality validation
-• Interactive Power BI/Tableau dashboards for stakeholder reporting
-• Machine learning model development and cross-validation
-• NLP text preprocessing and analysis
-• Communicating complex findings to non-technical audiences
+      // Technical Skills
+      setSection("TECHNICAL SKILLS")
+      addText("Programming: Python, R, SQL, VBA")
+      addText("Data Visualization: Power BI, Tableau, Google Data Studio")
+      addText("Data Processing: Pandas, NumPy, Excel")
+      addText("Machine Learning: Scikit-learn, TensorFlow/Keras")
+      addText("Statistical Analysis, EDA, Feature Engineering, ETL Design, Git")
 
-================================================================================
-ACHIEVEMENTS
-================================================================================
-• Cum Laude Candidate (USIU-Africa)
-• CC Academy Data Analytics Certified
-• Financial Audit Analytics Expertise
-• Machine Learning & NLP Projects
-• Active GitHub Contributor
-• Community Service Volunteer
+      // Work Experience
+      setSection("WORK EXPERIENCE")
+      addText("Data Analytics Intern – KKCO East Africa LLP (Jan 2026 – Present)", 10, true)
+      addText([
+        "• Analysed financial datasets to surface trends and anomalies for audit planning",
+        "• Built data cleaning and validation processes for multi-source financial files",
+        "• Developed Power BI dashboards for audit managers providing key financial metrics",
+        "• Supported IT audit cycles by reviewing data system outputs",
+      ])
+      yPosition += 3
+      addText("Mathematics Tutor – Freelance (Dec 2024 – Aug 2025)", 10, true)
+      addText([
+        "• Provided remote mathematics tutoring for university students",
+        "• Designed structured learning plans improving pass rates",
+        "• Developed ability to communicate complex statistical concepts",
+      ])
 
-================================================================================
-CAREER OBJECTIVE
-================================================================================
-To leverage data analytics expertise to uncover actionable business insights and 
-drive organizational impact. Seeking opportunities to work on complex financial 
-and operational data challenges, build machine learning models, and create 
-compelling data visualizations.
-`
+      // Key Competencies
+      setSection("KEY COMPETENCIES")
+      addText([
+        "• Financial data analysis and anomaly detection",
+        "• ETL pipeline design and data quality validation",
+        "• Interactive Power BI/Tableau dashboards for stakeholder reporting",
+        "• Machine learning model development and cross-validation",
+        "• NLP text preprocessing and analysis",
+        "• Communicating complex findings to non-technical audiences",
+      ])
 
-    // Create a Blob and trigger download
-    const blob = new Blob([cvText], { type: "text/plain;charset=utf-8" })
-    const link = document.createElement("a")
-    link.href = URL.createObjectURL(blob)
-    link.download = "Marie-Nyawaga-CV.txt"
-    link.style.display = "none"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-    URL.revokeObjectURL(link.href)
-    console.log("[v0] CV downloaded successfully")
+      // Achievements
+      setSection("RECOGNITION & ACHIEVEMENTS")
+      addText([
+        "• Cum Laude Candidate (USIU-Africa)",
+        "• CC Academy Data Analytics Certified",
+        "• Financial Audit Analytics Expertise",
+        "• Machine Learning & NLP Projects",
+        "• Active GitHub Contributor",
+        "• Community Service Volunteer",
+      ])
+
+      // Career Objective
+      setSection("CAREER OBJECTIVE")
+      addText("To leverage data analytics expertise to uncover actionable business insights and drive organizational impact. Seeking opportunities to work on complex financial and operational data challenges, build machine learning models, and create compelling data visualizations.")
+
+      // Save the PDF
+      doc.save("Marie-Nyawaga-CV.pdf")
+      console.log("[v0] PDF CV downloaded successfully")
+    } catch (error) {
+      console.error("[v0] PDF generation failed:", error)
+    }
   }
 
   return (
