@@ -6,11 +6,7 @@ import { Download, FileText, GraduationCap, Briefcase, Award, Code, Users } from
 
 export function ResumeContent() {
   const handleDownload = () => {
-    // Create a link element and trigger download
-    const link = document.createElement("a")
-    link.href = "data:text/plain;charset=utf-8,"
-    link.download = "Marie-Nyawaga-CV.txt"
-    
+    // Generate PDF as base64 using a simple PDF structure
     const cvContent = `
 MARIE ESTHER ATIENO NYAWAGA
 Data Analyst | BSc Data Science & Analytics
@@ -71,11 +67,69 @@ ACHIEVEMENTS
 CAREER OBJECTIVE
 To leverage data analytics expertise to uncover actionable business insights and drive organizational impact. Seeking opportunities to work on complex financial and operational data challenges, build machine learning models, and create compelling data visualizations.
     `
-    
-    link.href = "data:text/plain;charset=utf-8," + encodeURIComponent(cvContent)
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
+
+    // Create a PDF-like document using html5 canvas approach
+    // For now, we'll convert to PDF format by creating a proper blob
+    const element = document.createElement("div")
+    element.innerHTML = `
+      <h1>MARIE ESTHER ATIENO NYAWAGA</h1>
+      <p>Data Analyst | BSc Data Science & Analytics</p>
+      <p>Nairobi, Kenya | +254 797 291 632 | nyawagamarieesther@gmail.com</p>
+      <pre>${cvContent}</pre>
+    `
+
+    // Generate PDF using html2pdf if available, otherwise use a client library
+    try {
+      const script = document.createElement("script")
+      script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+      document.head.appendChild(script)
+      
+      script.onload = () => {
+        const opt = {
+          margin: 10,
+          filename: "Marie-Nyawaga-CV.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { orientation: "portrait", unit: "mm", format: "a4" }
+        }
+        window.html2pdf().set(opt).from(element).save()
+      }
+    } catch (error) {
+      console.error("PDF generation error:", error)
+      // Fallback: Create a simple PDF structure
+      const pdfContent = createSimplePDF(cvContent)
+      const link = document.createElement("a")
+      link.href = pdfContent
+      link.download = "Marie-Nyawaga-CV.pdf"
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+    }
+  }
+
+  // Helper function to create a basic PDF structure
+  const createSimplePDF = (content: string): string => {
+    const pdf = `%PDF-1.4
+1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj
+2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj
+3 0 obj<</Type/Page/Parent 2 0 R/Resources<</Font<</F1 4 0 R>>>>/MediaBox[0 0 612 792]/Contents 5 0 R>>endobj
+4 0 obj<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>endobj
+5 0 obj<</Length ${content.length}>>stream
+BT /F1 12 Tf 50 750 Td (${content.replace(/\(/g, "\\(").replace(/\)/g, "\\)")}) Tj ET
+endstream endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000214 00000 n 
+0000000301 00000 n 
+trailer<</Size 6/Root 1 0 R>>
+startxref
+${content.length + 400}
+%%EOF`
+    return "data:application/pdf;base64," + btoa(pdf)
   }
 
   return (
