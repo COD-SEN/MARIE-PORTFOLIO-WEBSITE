@@ -21,12 +21,12 @@ body {
 
 :root {
   /* Modern Windows 11 color scheme with vibrant gradients */
-  --win11-primary: #0067c0;
-  --win11-accent: #0078d4;
-  --win11-purple: #8b5cf6;
-  --win11-pink: #ec4899;
-  --win11-blue: #3b82f6;
-  --win11-teal: #14b8a6;
+  --win11-primary: #102a72;
+  --win11-accent: #173f9b;
+  --win11-purple: #2f6f4e;
+  --win11-pink: #d9a514;
+  --win11-blue: #3159a8;
+  --win11-teal: #3f8f61;
 
   --background: oklch(0.98 0.005 240);
   --foreground: oklch(0.15 0.01 240);

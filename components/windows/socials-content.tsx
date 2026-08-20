@@ -56,43 +56,43 @@ const socials = [
     platform: "GitHub",
     icon: GithubLogo,
     color: "bg-[#181717]",
-    username: "Marie-Nyawaga",
-    url: "https://github.com/Marie-Nyawaga",
+    username: "Brian Peru",
+    url: "https://github.com/",
   },
   {
     platform: "LinkedIn",
     icon: LinkedInLogo,
     color: "bg-[#0A66C2]",
-    username: "Marie Nyamwaga",
-    url: "https://www.linkedin.com/in/marie-nyawaga-390994388/",
+    username: "brian-peru-227a863b6",
+    url: "https://www.linkedin.com/in/brian-peru-227a863b6/",
   },
   {
     platform: "WhatsApp",
     icon: WhatsAppLogo,
     color: "bg-[#25D366]",
-    username: "0797291632",
-    url: "https://wa.me/254797291632",
+    username: "0790579802",
+    url: "https://wa.me/254790579802",
   },
   {
     platform: "Email",
     icon: GithubLogo,
     color: "bg-[#EA4335]",
-    username: "nyawagamarieesther@gmail.com",
-    url: "mailto:nyawagamarieesther@gmail.com",
+    username: "brianperu2019@gmail.com",
+    url: "mailto:brianperu2019@gmail.com",
   },
   {
     platform: "Instagram",
     icon: InstagramLogo,
     color: "bg-[#E1306C]",
-    username: "Marie Esther",
-    url: "https://instagram.com/marie.esther",
+    username: "Brian Peru",
+    url: "https://instagram.com/",
   },
   {
     platform: "TikTok",
     icon: TikTokLogo,
     color: "bg-[#000000]",
-    username: "Marie Nyamwaga",
-    url: "https://www.tiktok.com/@marienyamwaga",
+    username: "Brian Peru",
+    url: "https://www.tiktok.com/",
   },
 ]
 
@@ -101,7 +101,7 @@ export function SocialsContent() {
     <div className="space-y-6">
       <div>
         <h2 className="text-2xl font-bold text-gray-900">Social Profiles</h2>
-        <p className="text-sm text-gray-500 mt-1">Connect with me across all platforms.</p>
+        <p className="text-sm text-gray-500 mt-1">Connect with Brian Peru online.</p>
       </div>
 
       <div className="grid gap-4">

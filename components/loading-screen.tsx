@@ -92,7 +92,7 @@ export function LoadingScreen() {
 
             {/* Main name with gradient and glow */}
             <h1 className="relative text-5xl sm:text-7xl md:text-9xl font-black tracking-tighter gradient-text drop-shadow-2xl animate-float-in">
-              MARIE
+              BRIAN PERU
             </h1>
 
             {/* Glowing underline */}
@@ -103,7 +103,7 @@ export function LoadingScreen() {
             className="text-lg sm:text-xl md:text-2xl font-semibold text-white/90 animate-float-in tracking-wide"
             style={{ animationDelay: "0.2s" }}
           >
-            Data Science Portfolio
+            Inclusive Education Portfolio
           </p>
 
           {/* Floating particles effect */}

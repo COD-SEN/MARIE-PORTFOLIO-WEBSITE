@@ -30,8 +30,8 @@ export function getSettings(): PortfolioSettings {
     }
   }
   return {
-    userName: "MARIE",
-    userTitle: "Data Analyst",
+    userName: "BRIAN PERU",
+    userTitle: "SNE Teacher | Maths & Physics Tutor",
   }
 }
 

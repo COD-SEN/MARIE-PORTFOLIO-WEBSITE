@@ -52,7 +52,7 @@ export function DesktopView({ onRestart, onLogout }: DesktopViewProps) {
     if (settings.desktopBackground) {
       setDesktopBackground(settings.desktopBackground)
     } else {
-      setDesktopBackground("/desktop-bg-marie.png")
+      setDesktopBackground("/brian-tutoring-background.jpeg")
     }
   }, [])
 
@@ -115,7 +115,7 @@ export function DesktopView({ onRestart, onLogout }: DesktopViewProps) {
     if (settings.desktopBackground) {
       setDesktopBackground(settings.desktopBackground)
     } else {
-      setDesktopBackground("/desktop-bg-marie.png")
+      setDesktopBackground("/brian-tutoring-background.jpeg")
     }
   }
 

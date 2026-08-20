@@ -9,8 +9,8 @@ interface IntroScreenProps {
 
 export function IntroScreen({ onEnter }: IntroScreenProps) {
   const [userAvatar, setUserAvatar] = useState<string | null>(null)
-  const [userName, setUserName] = useState("MARIE")
-  const [userTitle, setUserTitle] = useState("Data Analyst")
+  const [userName, setUserName] = useState("BRIAN PERU")
+  const [userTitle, setUserTitle] = useState("SNE Teacher | Maths & Physics Tutor")
 
   useEffect(() => {
     const settings = getSettings()

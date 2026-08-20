@@ -137,7 +137,7 @@ export function SettingsPanel({ onClose, onUpdate }: SettingsPanelProps) {
                 id="userName"
                 value={settings.userName || ""}
                 onChange={(e) => handleInputChange("userName", e.target.value)}
-                placeholder="MARIE"
+                placeholder="BRIAN PERU"
               />
             </div>
             <div className="space-y-2">

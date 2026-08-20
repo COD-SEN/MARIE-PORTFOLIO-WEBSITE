@@ -15,12 +15,12 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  themeColor: "#0067c0",
+  themeColor: "#102a72",
 }
 
 export const metadata: Metadata = {
-  title: "Marie Nyawaga — Data Science Portfolio",
-  description: "Data Scientist & Data Analyst Portfolio with Windows 11 Aesthetic",
+  title: "Brian Peru — Inclusive Education Portfolio",
+  description: "Brian Peru, Special Needs Education Teacher, Maths & Physics Tutor, and KSL Interpreter.",
   generator: "My app",
   verification: {
     google: "google9efaad4f8be5d079",
@@ -50,7 +50,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-background">
       <body className={`${tahoma.className} antialiased`}>
         {children}
         <Analytics />
