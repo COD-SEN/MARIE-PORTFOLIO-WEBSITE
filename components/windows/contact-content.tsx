@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { MessageCircle, Send } from "lucide-react"
 
-const WHATSAPP_NUMBER = "254797291632" // +254 is Kenya country code
+const WHATSAPP_NUMBER = "254790579802" // +254 is Kenya country code
 
 export function ContactContent() {
   const [formData, setFormData] = useState({

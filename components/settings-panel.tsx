@@ -137,7 +137,7 @@ export function SettingsPanel({ onClose, onUpdate }: SettingsPanelProps) {
                 id="userName"
                 value={settings.userName || ""}
                 onChange={(e) => handleInputChange("userName", e.target.value)}
-                placeholder="MARIE"
+                placeholder="BRIAN"
               />
             </div>
             <div className="space-y-2">
@@ -146,7 +146,7 @@ export function SettingsPanel({ onClose, onUpdate }: SettingsPanelProps) {
                 id="userTitle"
                 value={settings.userTitle || ""}
                 onChange={(e) => handleInputChange("userTitle", e.target.value)}
-                placeholder="Data Science Specialist"
+                placeholder="Special Needs Education"
               />
             </div>
           </div>

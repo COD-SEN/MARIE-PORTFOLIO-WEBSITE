@@ -26,12 +26,16 @@ export function getSettings(): PortfolioSettings {
   if (typeof window !== "undefined") {
     const stored = localStorage.getItem(SETTINGS_KEY)
     if (stored) {
-      return JSON.parse(stored)
+      const parsed = JSON.parse(stored) as PortfolioSettings
+      if (parsed.userName?.toUpperCase().includes("MARIE") || parsed.userTitle?.toLowerCase().includes("data analyst")) {
+        return { ...parsed, userName: "BRIAN", userTitle: "Special Needs Education", userAvatar: undefined }
+      }
+      return parsed
     }
   }
   return {
-    userName: "MARIE",
-    userTitle: "Data Analyst",
+    userName: "BRIAN",
+    userTitle: "Special Needs Education",
   }
 }
 

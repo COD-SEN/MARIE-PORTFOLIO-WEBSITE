@@ -19,8 +19,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: "Marie Nyawaga — Data Science Portfolio",
-  description: "Data Scientist & Data Analyst Portfolio with Windows 11 Aesthetic",
+  title: "Brian Peru — Learner Support Teacher",
+  description: "Brian Peru — Learner Support Teacher specializing in Special Needs and Inclusive Education.",
   generator: "My app",
   verification: {
     google: "google9efaad4f8be5d079",

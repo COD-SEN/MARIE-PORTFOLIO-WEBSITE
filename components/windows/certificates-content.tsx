@@ -28,7 +28,7 @@ const certificates = [
   },
   {
     id: 4,
-    title: "Understanding Data Science",
+    title: "Inclusive Education Practice",
     platform: "DataCamp",
     date: "Jul 4, 2024",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-16%20at%2010.32.52%20%281%29-2gDAUWdyBH074zclXnef61DcYkkF44.jpeg",

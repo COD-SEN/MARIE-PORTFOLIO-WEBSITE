@@ -72,7 +72,7 @@ export function StartMenu() {
             <div className="w-12 h-12 rounded bg-white/90 flex items-center justify-center">
               <User className="w-8 h-8 text-[#245EDC]" />
             </div>
-            <div className="text-white font-bold text-lg">MARIE</div>
+            <div className="text-white font-bold text-lg">BRIAN</div>
           </div>
 
           {/* Left Menu Items */}
