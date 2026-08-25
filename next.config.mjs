@@ -13,7 +13,7 @@ const nextConfig = {
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
   experimental: {
-    optimizePackageImports: ["@radix-ui/react-*", "@icons-pack/react-simple-icons"],
+    optimizePackageImports: ["@radix-ui/react-*", "@icons-pack/react-simple-icons", "lucide-react"],
   },
   headers: () => [
     {
