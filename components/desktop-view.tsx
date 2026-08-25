@@ -26,7 +26,7 @@ import {
   Heart,
   Target,
   Mail,
-  Files,
+  FileArchive,
   Settings,
   RotateCcw,
   LogOut,
@@ -135,7 +135,7 @@ export function DesktopView({ onRestart, onLogout }: DesktopViewProps) {
     { id: "socials", title: "Social Profiles", icon: Share2, content: SocialsContent },
     { id: "interests", title: "Interests", icon: Heart, content: InterestsContent },
     { id: "ambitions", title: "Tech Ambitions", icon: Target, content: AmbitionsContent },
-    { id: "documents", title: "Documents", icon: Files, content: DocumentsContent },
+    { id: "documents", title: "Documents", icon: FileArchive, content: DocumentsContent },
     { id: "contact", title: "Contact Me", icon: Mail, content: ContactContent },
   ]
 
