@@ -13,7 +13,7 @@ const SocialsContent = lazy(() => import("@/components/windows/socials-content")
 const InterestsContent = lazy(() => import("@/components/windows/interests-content").then(m => ({ default: m.InterestsContent })))
 const AmbitionsContent = lazy(() => import("@/components/windows/ambitions-content").then(m => ({ default: m.AmbitionsContent })))
 const ContactContent = lazy(() => import("@/components/windows/contact-content").then(m => ({ default: m.ContactContent })))
-const CertificatesContent = lazy(() => import("@/components/windows/certificates-content").then(m => ({ default: m.CertificatesContent })))
+const DocumentsContent = lazy(() => import("@/components/windows/documents-content").then(m => ({ default: m.DocumentsContent })))
 import { Taskbar } from "@/components/taskbar"
 import { SettingsPanel } from "@/components/settings-panel"
 import { PasswordDialog } from "@/components/password-dialog"
@@ -26,7 +26,7 @@ import {
   Heart,
   Target,
   Mail,
-  Award,
+  Files,
   Settings,
   RotateCcw,
   LogOut,
@@ -135,7 +135,7 @@ export function DesktopView({ onRestart, onLogout }: DesktopViewProps) {
     { id: "socials", title: "Social Profiles", icon: Share2, content: SocialsContent },
     { id: "interests", title: "Interests", icon: Heart, content: InterestsContent },
     { id: "ambitions", title: "Tech Ambitions", icon: Target, content: AmbitionsContent },
-    { id: "certificates", title: "Certificates", icon: Award, content: CertificatesContent },
+    { id: "documents", title: "Documents", icon: Files, content: DocumentsContent },
     { id: "contact", title: "Contact Me", icon: Mail, content: ContactContent },
   ]
 
