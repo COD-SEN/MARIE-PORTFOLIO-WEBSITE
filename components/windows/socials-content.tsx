@@ -1,11 +1,12 @@
 "use client"
 
-import { ExternalLink, Mail, MapPin, MessageCircle, Linkedin } from "lucide-react"
+import { ExternalLink, Mail, MapPin, MessageCircle, Linkedin, Music2 } from "lucide-react"
 
 const socials = [
   { platform: "LinkedIn", icon: Linkedin, color: "bg-[#0A66C2]", username: "brian-peru-227a863b6", url: "https://www.linkedin.com/in/brian-peru-227a863b6" },
   { platform: "WhatsApp", icon: MessageCircle, color: "bg-[#25D366]", username: "+254 790 579 802", url: "https://wa.me/254790579802" },
   { platform: "Email", icon: Mail, color: "bg-[#EA4335]", username: "brianperu2019@gmail.com", url: "mailto:brianperu2019@gmail.com" },
+  { platform: "TikTok", icon: Music2, color: "bg-slate-900", username: "Brian Peru", url: "https://www.tiktok.com/" },
   { platform: "Location", icon: MapPin, color: "bg-[#2563EB]", username: "Nairobi, Kenya", url: "https://maps.google.com/?q=Nairobi,Kenya" },
 ]
 
