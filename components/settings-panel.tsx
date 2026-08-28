@@ -15,6 +15,7 @@ interface SettingsPanelProps {
 export function SettingsPanel({ onClose, onUpdate }: SettingsPanelProps) {
   const [settings, setSettings] = useState<PortfolioSettings>(getSettings())
   const [uploading, setUploading] = useState<string | null>(null)
+  const [uploadStatus, setUploadStatus] = useState<string | null>(null)
 
   const loadingBgRef = useRef<HTMLInputElement>(null)
   const userAvatarRef = useRef<HTMLInputElement>(null)
@@ -28,9 +29,11 @@ export function SettingsPanel({ onClose, onUpdate }: SettingsPanelProps) {
       setSettings(newSettings)
       await saveSettings(newSettings)
       setUploading(null)
+      setUploadStatus(`${key} uploaded successfully`)
     } catch (error) {
       console.error("Upload failed:", error)
       setUploading(null)
+      setUploadStatus("Upload failed. Please choose another image.")
     }
   }
 
@@ -53,6 +56,7 @@ export function SettingsPanel({ onClose, onUpdate }: SettingsPanelProps) {
 
         {/* Content */}
         <div className="flex-1 overflow-y-auto p-6 space-y-6">
+          {uploadStatus && <p role="status" className="rounded-lg border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm font-medium text-emerald-800">{uploadStatus}</p>}
           {/* Loading Screen Background */}
           <div className="space-y-2">
             <Label className="flex items-center gap-2 text-base font-semibold">

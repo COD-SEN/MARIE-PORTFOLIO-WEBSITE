@@ -51,7 +51,7 @@ export function DesktopView({ onRestart, onLogout }: DesktopViewProps) {
     if (settings.desktopBackground) {
       setDesktopBackground(settings.desktopBackground)
     } else {
-      setDesktopBackground("/desktop-bg-arsene.jpg")
+      setDesktopBackground("/brian-hill-background.svg")
     }
   }, [])
 
@@ -114,7 +114,7 @@ export function DesktopView({ onRestart, onLogout }: DesktopViewProps) {
     if (settings.desktopBackground) {
       setDesktopBackground(settings.desktopBackground)
     } else {
-      setDesktopBackground("/desktop-bg-arsene.jpg")
+      setDesktopBackground("/brian-hill-background.svg")
     }
   }
 
@@ -162,10 +162,6 @@ export function DesktopView({ onRestart, onLogout }: DesktopViewProps) {
           animation: desktopBackground ? "none" : "gradient-shift 15s ease infinite",
         }}
       />
-
-      <div className="pointer-events-none absolute inset-x-0 top-1/2 z-0 flex -translate-y-1/2 justify-center">
-        <span className="select-none text-center text-[clamp(3rem,13vw,11rem)] font-black uppercase italic tracking-[0.18em] text-white/90 [text-shadow:0_4px_0_rgba(15,23,42,0.55),0_10px_24px_rgba(15,23,42,0.45)]">Brian</span>
-      </div>
 
       {/* Desktop icons -- responsive wrapping grid that fits on screen */}
       <div className="absolute top-14 sm:top-2 left-0 right-0 bottom-14 overflow-y-auto p-2 sm:p-4 md:p-5">

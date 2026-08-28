@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Grassy hill desktop background with Brian engraved into the grass">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#80c5f2"/><stop offset="1" stop-color="#d9f3ff"/></linearGradient>
+    <linearGradient id="grass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#78bd4f"/><stop offset="1" stop-color="#245c32"/></linearGradient>
+    <filter id="engrave"><feGaussianBlur stdDeviation="1.2"/></filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <path d="M0 500 Q360 380 750 520 T1600 440 V900 H0Z" fill="url(#grass)"/>
+  <path d="M0 500 Q360 380 750 520 T1600 440" fill="none" stroke="#9ddb67" stroke-width="16" opacity=".45"/>
+  <g opacity=".38" stroke="#183f27" stroke-width="5" stroke-linecap="round"><path d="M120 620l-14-28m14 28l18-30M310 550l-12-25m12 25l18-28M560 650l-14-30m14 30l20-32M1000 570l-15-29m15 29l21-30M1360 520l-14-27m14 27l21-32M1500 680l-12-28m12 28l20-29"/></g>
+  <text x="800" y="655" text-anchor="middle" font-family="Georgia,serif" font-size="190" font-weight="900" font-style="italic" letter-spacing="18" fill="#244b2b" stroke="#8bc45c" stroke-width="5" paint-order="stroke" filter="url(#engrave)">BRIAN</text>
+</svg>

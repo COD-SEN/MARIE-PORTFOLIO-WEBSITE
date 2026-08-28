@@ -6,6 +6,39 @@ import { Code, BarChart3, TrendingUp, Database, PieChart, LineChart, Table2, Zap
 
 const projects = [
   {
+    title: "Inclusive Learning Support Plans",
+    description: "Learner-centred support plans for autism, dyslexia, ADHD, hearing impairment, and diverse learning needs, with clear goals, classroom adjustments, and progress evidence.",
+    icon: Heart,
+    gradient: "from-blue-500 to-indigo-700",
+    tags: ["SNE Support", "IEP Planning", "Inclusion"],
+    image: "/brian-classroom.jpeg",
+  },
+  {
+    title: "Maths and Physics Tutoring Programme",
+    description: "Structured primary-to-secondary tutoring programme using scaffolded explanations, practical examples, visual learning, and exam-focused practice for Cambridge, CBE, and Kenyan curricula.",
+    icon: Table2,
+    gradient: "from-amber-400 to-orange-600",
+    tags: ["Mathematics", "Physics", "Tutoring"],
+    image: "/brian-flyer.jpeg",
+  },
+  {
+    title: "KSL Communication Support",
+    description: "Accessible learning communication support through Kenyan Sign Language interpretation, visual cues, patient modelling, and inclusive classroom collaboration.",
+    icon: GitBranch,
+    gradient: "from-emerald-400 to-teal-700",
+    tags: ["KSL", "Communication", "Accessibility"],
+    image: "/brian-classroom.jpeg",
+  },
+  {
+    title: "Learner Confidence and Independence",
+    description: "A practical classroom approach that combines empathy, positive reinforcement, life skills, and learner voice to build confidence, participation, and independence.",
+    icon: Briefcase,
+    gradient: "from-violet-400 to-purple-700",
+    tags: ["Life Skills", "Mentoring", "Wellbeing"],
+    image: "/brian-flyer.jpeg",
+  },
+  /*
+  {
     title: "Car Sales Performance Dashboard",
     description: "Interactive multi-sheet Excel dashboard tracking sales volume, revenue trends, and customer segments across dealership data. Features PivotTables, dynamic slicers, conditional formatting, and identified seasonal demand spikes with actionable stock and promotion insights.",
     icon: BarChart3,
@@ -53,6 +86,7 @@ const projects = [
     tags: ["Power BI", "HR Analytics", "Dashboard"],
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-07-16%20at%2010.31.44-iDjyMm9nmjfn5AyRAYG8qQiA2rWaoP.jpeg",
   },
+  */
 ]
 
 export function ProjectsContent() {
@@ -63,7 +97,7 @@ export function ProjectsContent() {
       <div className="space-y-6">
         <div>
           <h2 className="text-2xl font-bold text-gray-900">My Projects</h2>
-          <p className="text-sm text-gray-500 mt-1">Click any project to view details. A portfolio of analytics, machine learning, and data science projects demonstrating hands-on expertise.</p>
+          <p className="text-sm text-gray-500 mt-1">Click any project to view details. A practice portfolio focused on inclusive support, tutoring, communication, and learner-centred teaching.</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
