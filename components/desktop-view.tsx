@@ -51,7 +51,7 @@ export function DesktopView({ onRestart, onLogout }: DesktopViewProps) {
     if (settings.desktopBackground) {
       setDesktopBackground(settings.desktopBackground)
     } else {
-      setDesktopBackground("/brian-hill-background.svg")
+      setDesktopBackground("/brian-desktop-background.png")
     }
   }, [])
 
@@ -114,7 +114,7 @@ export function DesktopView({ onRestart, onLogout }: DesktopViewProps) {
     if (settings.desktopBackground) {
       setDesktopBackground(settings.desktopBackground)
     } else {
-      setDesktopBackground("/brian-hill-background.svg")
+      setDesktopBackground("/brian-desktop-background.png")
     }
   }
 
