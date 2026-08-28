@@ -8,7 +8,10 @@ export function ProfileContent() {
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
-        <img src="/tech-avatar-icon.png" alt="Brian Peru" className="w-20 h-20 rounded-2xl object-cover border-2 border-blue-200 shadow-md" />
+        <img src="/brian-flyer.jpeg" alt="Brian Peru" className="w-20 h-20 rounded-2xl object-cover border-2 border-blue-200 shadow-md" />
+        <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-2xl border-2 border-blue-200 shadow-md">
+          <img src="/brian-flyer.jpeg" alt="Brian Peru educational services flyer" className="h-full w-full object-cover object-top" />
+        </div>
         <div>
           <h2 className="text-2xl font-bold text-gray-900">Brian Peru</h2>
           <p className="text-sm text-gray-500 font-medium">Learner Support Teacher | Special Needs Education</p>

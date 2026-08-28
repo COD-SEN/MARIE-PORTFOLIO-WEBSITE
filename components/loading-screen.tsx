@@ -76,6 +76,7 @@ export function LoadingScreen() {
           {/* Animated rings behind the text */}
           <div className="relative">
             <div className="absolute inset-0 flex items-center justify-center">
+              <img src="/brian-portrait.jpeg" alt="Brian Peru" className="relative z-10 mx-auto size-24 rounded-full border-4 border-white/80 object-cover shadow-2xl sm:size-32 md:size-40" />
               <div
                 className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 border-4 border-blue-500/30 rounded-full animate-ping"
                 style={{ animationDuration: "3s" }}

@@ -60,8 +60,8 @@ export function IntroScreen({ onEnter }: IntroScreenProps) {
                 />
               ) : (
                 <img
-                  src="/tech-avatar-icon.png"
-                  alt="Portfolio avatar"
+                  src="/brian-portrait.jpeg"
+                  alt="Brian Peru"
                   className="w-full h-full object-cover"
                 />
               )}

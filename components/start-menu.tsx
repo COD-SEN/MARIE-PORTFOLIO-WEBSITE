@@ -116,7 +116,7 @@ export function StartMenu() {
               className="w-full px-4 py-2 flex items-center gap-3 text-white hover:bg-[#3A6FE8] transition-colors"
             >
               <Target className="w-6 h-6" />
-              <div className="font-semibold text-left">Tech Ambitions</div>
+              <div className="font-semibold text-left">Education Practice</div>
             </button>
             <button
               onClick={() => setShowSettings(true)}
