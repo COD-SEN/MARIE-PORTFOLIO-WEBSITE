@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Code, BarChart3, TrendingUp, Database, PieChart, LineChart, Table2, Zap, GitBranch, Briefcase, X } from "lucide-react"
+import { Code, BarChart3, TrendingUp, Database, PieChart, LineChart, Table2, Zap, GitBranch, Briefcase, Heart, X } from "lucide-react"
 
 const projects = [
   {
